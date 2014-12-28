@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PUZZLE</string>
+    <string name="hello_world">hello!</string>
+    <string name="act_set">Settings</string>
+    <string-array name="planets"  >
+        <item>Keep Playing</item>
+        <item>Score</item>
+        <item>Instructions</item>
+        <item>Exit</item>
+    </string-array>
+    <string-array name="stars">
+        <item>sun</item>
+        <item>sirius A</item>
+        <item>sirius B</item>
+        <item>Alpha Centauri</item>
+        <item>Proxima Centauri</item>
+        
+    </string-array>
+    
+    
+</resources>
