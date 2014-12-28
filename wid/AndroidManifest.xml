@@ -47,6 +47,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.wid.logicQues"
+            android:label="Logic"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.logicQues" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.example.wid.jumbleQues"
+            android:label="Jumbled Word"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.jumbleQues" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
             android:name="com.example.wid.riddleQues"
             android:label="Riddle"
             android:screenOrientation="portrait" >

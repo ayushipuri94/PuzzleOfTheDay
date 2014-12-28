@@ -47,7 +47,14 @@ public class otherPuzzles extends Activity implements OnClickListener{
 			Intent i2 = new Intent(this, riddleQues.class);
 			startActivity(i2);
 			break;
-		
+		case R.id.jumledWord:
+			Intent i3 = new Intent(this, jumbleQues.class);
+			startActivity(i3);
+			break;
+		case R.id.logic:
+			Intent i4 = new Intent(this, logicQues.class);
+			startActivity(i4);
+			break;
 		}
 	}
 
