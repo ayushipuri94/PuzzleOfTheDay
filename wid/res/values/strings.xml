@@ -4,10 +4,11 @@
     <string name="hello_world">hello!</string>
     <string name="act_set">Settings</string>
     <string-array name="planets"  >
-        <item>Keep Playing</item>
-        <item>Score</item>
-        <item>Instructions</item>
-        <item>Exit</item>
+        <item name="menu_logic" >Logic</item>
+        <item name="menu_math">Math</item>
+        <item name="menu_jumble">Jumbled Word</item>
+        <item name="menu_riddle">Riddle</item>
+        <item name="menu_exit">Exit</item>
     </string-array>
     <string-array name="stars">
         <item>sun</item>

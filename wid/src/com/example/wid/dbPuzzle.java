@@ -34,10 +34,10 @@ public class dbPuzzle extends SQLiteOpenHelper {
 	public static final String key_ques = "ques";
 	public static final String key_ans = "ans";
 	public static final String key_explain = "explain";
-	public static final String key_ans_img = "ans_img";
-	public static final String key_img = "img";
+	//public static final String key_ans_img = "ans_img";
+	//public static final String key_img = "img";
 	public static final String key_hint1 = "hint1";
-	public static final String key_hint2 = "hint2";
+	//public static final String key_hint2 = "hint2";
 
 	public dbPuzzle(Context context) {
 		super(context, database_name, null, database_version);
@@ -50,26 +50,26 @@ public class dbPuzzle extends SQLiteOpenHelper {
 		db.execSQL("drop table if exists " + database_table);
 
 		//Toast.makeText(myContext, "Creating", Toast.LENGTH_SHORT).show();
-		db.execSQL("create table if not exists " + database_table + " (" + key_id
-				+ " integer primary key autoincrement, " + key_name
-				+ " varchar(50) not null, " + key_date + " varchar(20), "
-				+ key_difficulty + " varchar(20), " + key_ques
-				+ " varchar(1000) not null, " + key_ans
-				+ " varchar(100) not null, " + key_explain + " varchar(500), "
-				+ key_ans_img + " varchar(20), " + key_img + " varchar(20), "
-				+ key_hint1 + " varchar(100), " + key_hint2
-				+ " varchar(100) );");
+		db.execSQL("create table if not exists " + database_table + " ("
+				+ key_id + " integer primary key autoincrement, " 
+				+ key_name + " varchar(50) not null, " 
+				+ key_date + " varchar(20), "
+				+ key_difficulty + " varchar(20) default '**', " 
+				+ key_ques+ " varchar(2000) not null, " 
+				+ key_ans + " varchar(200) not null, " 
+				+ key_explain + " varchar(500), "
+				+ key_hint1 + " varchar(200) );");
 		insert(db);
 		//Toast.makeText(myContext, "Created", Toast.LENGTH_SHORT).show();
 	}
 	public void insert(SQLiteDatabase db){
-	db.execSQL("insert into Puzzle values(1, 'HAND PROBLEM', '13/12/2014',  '*', 'What can you hold with your right hand but not from your left hand?', 'left hand', 'duhoy', null, null, 'it is one of your hands', 'it is not your right hand' );");	
-	db.execSQL("insert into Puzzle values(2, 'THE BRAVE BABY', '14/12/2014', '**', 'How could a baby fall out of a twenty-story building onto the ground and live?', 'ground', 'duhoy', null, null, 'It does not matter what the baby lands on, and it has nothing to do with luck.', ' ' );");
-	//db.execSQL("insert into Puzzle values(2, 'THE BRAVE BABY', '15/11/2014', '**', 'Your last good ping-pong ball fell down into a narrow metal pipe imbedded in concrete one foot deep. How can you get it out undamaged, if all the tools you have are your tennis paddle, your shoe-laces, and your plastic water bottle, which does not fit into the pipe?', 'blow', 'Blow into the pipre, the upward air thrust will push it up.', null, null, 'You don't really need those items', ' ' );");
-	//db.execSQL("insert into Puzzle values(5 'TOM & JOE', '17/11/2014', ' * ', 'Tom and Joe want to sit behind each other in class and the teacher arranges them so they are both happy. What does their teacher do?', 'back to back', 'Make Tom and Joe sit back to back.', null, null, 'They both get what they wanted.', ' ' );");
-	db.execSQL("insert into Puzzle values(4, 'SURGEON', '15/12/2014',  '****', 'Fill the 3 blank spaces with the same set of letters to give the sentence meaning. THE _ _ _ _ _ _ _ SURGEON WAS _ _ _ _ _ _ _ TO OPERATE BECAUSE OF _ _ _ _ _ _ _  ', 'notable', 'The notable surgeon was not able to operate because of no table.', null, null, 'NOWHERE can be comprehended as NOW HERE or NO WHERE.', 'it is not your right hand' );");	
-	//db.execSQL("insert into Puzzle values(5, 'PING PONG', '15/11/2014',  '*', 'Your last good ping-pong ball fell down into a narrow metal pipe imbedded in concrete one foot deep. How can you get it out undamaged, if all the tools you have are your tennis paddle, your shoe-laces, and your plastic water bottle, which does not fit into the pipe? ', 'blow', 'Blow into the pipe, the air thrust will push it up.', null, null, 'You don't really need those items.', '');");	
-	
+	db.execSQL("insert into Puzzle values(1, 'HAND PROBLEM', '09/01/2015',  '*', 'What can you hold with your right hand but not your left hand?', 'left hand', null, 'it is one of your hands');");	
+	db.execSQL("insert into Puzzle values(2, 'THE BRAVE BABY', '05/01/2015', '**', 'How could a baby fall out of a twenty-story building onto the ground and live?', 'ground', 'who said anything about falling from the 20th floor? The baby simply fell from the ground floor!', 'It does not matter what the baby lands on, and it has nothing to do with luck.' );");
+	db.execSQL("insert into Puzzle values(3, 'TOM & JOE', '06/01/2015', '** ', 'Tom and Joe want to sit behind each other in class and the teacher arranges them so they are both happy. What does their teacher do?', 'back to back', 'Make Tom and Joe sit back to back.', 'They both get what they wanted.' );");
+	db.execSQL("insert into Puzzle values(4, 'SURGEON', '07/01/2015',  '*****', 'Fill the 3 blank spaces with the same set of letters to give the sentence meaning. THE _ _ _ _ _ _ _ SURGEON WAS _ _ _ _ _ _ _ TO OPERATE BECAUSE OF _ _ _ _ _ _ _  ', 'notable', 'The NOTABLE surgeon was NOT ABLE to operate because of NO TABLE.', 'NOWHERE can be comprehended as NOW HERE or NO WHERE.');");	
+	db.execSQL("insert into Puzzle values(5, 'PING PONG', '08/01/2015',  '*', 'Your last good ping-pong ball fell down into a narrow metal pipe embedded in concrete one foot deep. How can you get it out undamaged, if all the tools you have are your tennis paddle, your shoe-laces, and your plastic water bottle, which does not fit into the pipe? ', 'blow', 'Blow into the pipe, the air thrust will push it up.', 'You do not need those items.');");	
+	db.execSQL("insert into Puzzle values(6, 'Supersonic Bee', '04/01/2015',  '***', 'Two trains enter a tunnel 200 miles long traveling at 100mph at the same time from opposite directions. When they enter the tunnel a supersonic bee flying at 1000mph starts from on train and heads towards the other, and heads back towards the first, going back and forth between the trains until the trains collide in a fiery explosion in the middle of the tunnel. How much did the bee travel?', '1000miles', 'It takes one hour for the trains to reach the middle point of the tunnel to collide, and the bee flies at 1000mph.', 'This does not require any calculations.');");
+
 	}
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -84,10 +84,10 @@ public class dbPuzzle extends SQLiteOpenHelper {
 	 */
 	public void openDb() {
 		// Open the database
-	//	Toast.makeText(myContext, "Opening", Toast.LENGTH_SHORT).show();
+		Toast.makeText(myContext, "Opening", Toast.LENGTH_SHORT).show();
 		sqldb = myContext.openOrCreateDatabase(database_name,
 				Context.MODE_PRIVATE, null);
-		//Toast.makeText(myContext, "Opened", Toast.LENGTH_SHORT).show();
+		Toast.makeText(myContext, "Opened", Toast.LENGTH_SHORT).show();
 		onCreate(sqldb);
 	}
 	public void close() {
@@ -176,13 +176,13 @@ public class dbPuzzle extends SQLiteOpenHelper {
 		return result;
 	}
 
-	public String getHint2() {
+	/*public String getHint2() {
 		// TODO Auto-generated method stub
 		String[] cols = new String[] { key_hint2, key_date };
 		Cursor c = sqldb.query(database_table, cols, null, null, null,
 				null, null);
 
-		int iHint2 = c.getColumnIndex(key_hint2);
+	//	int iHint2 = c.getColumnIndex(key_hint2);
 		int iDate = c.getColumnIndex(key_date);
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 			if (c.getString(iDate).matches(getDate())&& Integer.parseInt(getTime())>=18) {
@@ -191,7 +191,7 @@ public class dbPuzzle extends SQLiteOpenHelper {
 		}
 		String result = "No hints available";
 		return result;
-	}
+	}*/
 	public String getTime() {
 		SimpleDateFormat df = new SimpleDateFormat("HH");
 		Date today = Calendar.getInstance().getTime();

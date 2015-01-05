@@ -17,12 +17,12 @@ public class otherPuzzles extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.others);
 		btnRiddle=(Button)findViewById(R.id.riddle);
-		btnLogic=(Button)findViewById(R.id.logic);
+		//btnLogic=(Button)findViewById(R.id.logic);
 		btnMath=(Button)findViewById(R.id.maths);
 		btnJumble=(Button)findViewById(R.id.jumledWord);
 		btnBack=(Button)findViewById(R.id.back);
 		
-		btnLogic.setOnClickListener(this);
+		//btnLogic.setOnClickListener(this);
 		btnRiddle.setOnClickListener(this);
 		btnMath.setOnClickListener(this);
 		btnJumble.setOnClickListener(this);
@@ -51,10 +51,10 @@ public class otherPuzzles extends Activity implements OnClickListener{
 			Intent i3 = new Intent(this, jumbleQues.class);
 			startActivity(i3);
 			break;
-		case R.id.logic:
-			Intent i4 = new Intent(this, logicQues.class);
-			startActivity(i4);
-			break;
+		//case R.id.logic:
+		//	Intent i4 = new Intent(this, logicQues.class);
+		//	startActivity(i4);
+		//	break;
 		}
 	}
 

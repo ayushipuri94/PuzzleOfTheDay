@@ -28,12 +28,12 @@ public class SQLHint extends Activity implements OnClickListener {
 		dbp = new dbPuzzle(this);
 		dbp.openDb();
 		String hint1 = dbp.getHint1();
-		String hint2 = dbp.getHint2();
+		//String hint2 = dbp.getHint2();
 		//String img = dbp.getImg();
 
 		dbp.close();
 		sqlhint1.setText(hint1);
-		sqlhint2.setText(hint2);
+		//sqlhint2.setText(hint2);
 		// sqlimg.setText(img);
 	}
 
