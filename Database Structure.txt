@@ -1,0 +1,15 @@
+
+------------- DATABASE STRUCTURE ---------------
+Page : dbPuzzle.java
+Database Name : Puzzle.db
+Table Name : Puzzle
+Columns : 	
+			key_id				int pk auto inc
+			key_name			varchar(50) not null
+			key_date			varchar(20) not null
+			key_difficutlty		varchar(20)
+			key_ques			varchar(1000) not null
+			key_ans				varchar(100) not nul
+			key_explain			varchar(500)
+			key_hint1			varchar(100) not null
+			
