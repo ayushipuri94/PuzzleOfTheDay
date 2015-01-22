@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +29,8 @@ import android.content.SharedPreferences;
 
 public class MainActivity extends Activity implements OnClickListener, OnItemClickListener {
 
-	Button sqlsubmit, sqlhint, sqlsolution;
+	ImageView sqlhint, hintOn;
+	Button sqlsubmit, sqlsolution;
 	EditText sqlAttempt;
 	TextView sqlid, sqlname, sqldifficulty, sqlques, sqlans, sqlansimg, sqlimg,
 			sqlhint1, sqlhint2,TxtScore = null;
@@ -43,7 +46,11 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+		        "font/indiepimptbs.ttf");
+		
 	//	Toast.makeText(getApplicationContext(), "Testing 123",
+
 	//			Toast.LENGTH_SHORT).show();
 	//	drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 	//	listView = (ListView) findViewById(R.id.drawerList);
@@ -51,14 +58,25 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 	//	listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
 	//	listView.setOnItemClickListener(this);
 		
+		
 		sqlsubmit = (Button) findViewById(R.id.buttonSubmit);
-		sqlhint = (Button) findViewById(R.id.buttonHint);
+		sqlhint = (ImageView) findViewById(R.id.buttonHint);
+		hintOn = (ImageView) findViewById(R.id.buttonHintOn);
 		sqlsolution = (Button) findViewById(R.id.buttonSolution);
 		sqlname = (TextView) findViewById(R.id.textViewName);
 		sqldifficulty = (TextView) findViewById(R.id.textViewStars);
 		sqlques = (TextView) findViewById(R.id.textViewQues);
 		sqlAttempt =(EditText)findViewById(R.id.editTextAns);
+		hintOn.setVisibility(View.INVISIBLE);
 		
+		sqlsubmit.setTypeface(tf);
+		sqlsolution.setTypeface(tf);
+		sqlname.setTypeface(tf);
+		sqldifficulty.setTypeface(tf);
+		sqlques.setTypeface(tf);
+		sqlAttempt.setTypeface(tf);
+		
+		hintOn.setOnClickListener(this);
 		sqlsubmit.setOnClickListener(this);
 		sqlhint.setOnClickListener(this);
 		sqlques.setOnClickListener(this);
@@ -95,6 +113,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.buttonHint:
+			//hintOn.setVisibility(View.VISIBLE);
 			AlertDialog.Builder a= new AlertDialog.Builder(v.getContext())
 			.setTitle("Hint")
 			.setMessage(dbp.getHint1())
@@ -102,7 +121,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 			AlertDialog ab= a.create();
 			ab.show();
 			Timer t1=new Timer();
-			t1.schedule(new CloseDialogTimerTask(ab), 5000); 
+			t1.schedule(new CloseDialogTimerTask(ab), 5000);
 			break;
 		case R.id.buttonSolution:
 			Intent i2 = new Intent(this, SQLAns.class);

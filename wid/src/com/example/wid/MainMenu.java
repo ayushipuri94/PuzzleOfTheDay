@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import android.content.SharedPreferences;
 
 public class MainMenu extends Activity implements OnClickListener {
 
-	Button STP, Instr, Score,Quit, Other;
+	Button STP, Instr,Quit, Other;
 	TextView name;
 	private dbPuzzle dbp = null;
 
@@ -30,18 +31,26 @@ public class MainMenu extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+		        "font/indiepimptbs.ttf");
+		
 		setContentView(R.layout.main_menu);
 		STP = (Button) findViewById(R.id.Play);
 		Other = (Button) findViewById(R.id.other);
 		Instr = (Button) findViewById(R.id.Instructions);
-		Score = (Button) findViewById(R.id.Score);
+	
 		Quit= (Button) findViewById(R.id.Exit);
 		name = (TextView) findViewById(R.id.textViewName);
 		STP.setOnClickListener(this);
 		Other.setOnClickListener(this);
 		Instr.setOnClickListener(this);
-		Score.setOnClickListener(this);
 		Quit.setOnClickListener(this);
+	
+		STP.setTypeface(tf);
+		Other.setTypeface(tf);
+		Instr.setTypeface(tf);
+		Quit.setTypeface(tf);
+		name.setTypeface(tf);
 	}
 
 	@Override
@@ -52,26 +61,24 @@ public class MainMenu extends Activity implements OnClickListener {
 
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.Score:
-			core= pref.getInt("MyPref",0);
-			AlertDialog.Builder a= new AlertDialog.Builder(v.getContext())
-			.setTitle("Score")
-			.setMessage("Your current score is :" + core)
-			.setIcon(R.drawable.ic_launcher);	
-			AlertDialog ab= a.create();
-			ab.show();
-			Timer t1=new Timer();
-			t1.schedule(new CloseDialogTimerTask(ab), 5000); 
-			break;
+		
 		
 		case R.id.Play:
 			Intent i2 = new Intent(this, MainActivity.class);
+			
 			startActivity(i2);
+
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 			
 		case R.id.other:
 			Intent i3 = new Intent(this, otherPuzzles.class);
+			
 			startActivity(i3);
+
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 		
 		case R.id.Instructions:

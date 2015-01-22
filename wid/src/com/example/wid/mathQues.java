@@ -4,6 +4,7 @@ package com.example.wid;
 import java.util.Timer;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 public class mathQues extends Activity implements OnClickListener, OnItemClickListener {
 
 	Button btnSol, btnBack;
-	TextView soln;
+	TextView soln, ques;
 	private  DrawerLayout drawerLayout;
 	private ListView listView;
 
@@ -32,18 +33,20 @@ public class mathQues extends Activity implements OnClickListener, OnItemClickLi
 		btnSol = (Button) findViewById(R.id.buttonSolution);
 		btnBack = (Button) findViewById(R.id.btnBack);
 		soln = (TextView) findViewById(R.id.solution);
+		ques = (TextView) findViewById(R.id.question);
 		btnSol.setOnClickListener(this);
 		btnBack.setOnClickListener(this);
 		soln.setVisibility(View.INVISIBLE);
 		
-
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+		        "font/indiepimptbs.ttf");
+		btnBack.setTypeface(tf);
+		btnSol.setTypeface(tf);
+		soln.setTypeface(tf);ques.setTypeface(tf);
+		
 		Toast.makeText(getApplicationContext(), "Testing 123",
 				Toast.LENGTH_SHORT).show();
-		drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-		listView = (ListView) findViewById(R.id.drawerList);
-		menu= getResources().getStringArray(R.array.planets);
-		listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
-		listView.setOnItemClickListener(this);
+		
 			
 	}
 	@Override

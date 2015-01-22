@@ -1,82 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawerLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#166f5e"
+    android:background="#ffffff"
      >
 
      <TextView
          android:id="@+id/question"
-         android:layout_width="match_parent"
+         android:layout_width="fill_parent"
          android:layout_height="250dp"
          android:layout_alignParentLeft="true"
          android:layout_alignParentTop="true"
-         android:layout_marginLeft="10dp"
-         android:layout_marginRight="10dp"
          android:layout_marginTop="10dp"
          android:padding="10dp"
-         android:background="@drawable/rounded_corner_lighter"
+         android:background="#1abc9c"
          android:fontFamily="sans-serif-light"
          android:text="question"
-         android:textColor="#166f5e"
+         android:textColor="#ffffff"
          android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonSolution"
         android:layout_width="fill_parent"
-        android:layout_height="42dp"
-         android:layout_marginLeft="10dp"
-         android:layout_marginRight="10dp"
-        android:layout_alignBottom="@+id/question"
+        android:layout_height="50dp"
+        android:layout_below="@+id/question"
         android:layout_alignParentLeft="true"
         android:fontFamily="sans-serif-light"
-        android:background="#00ffffff"
+        android:background="#c8f463"
         android:text="View Solution"
-        android:textColor="#166f5e"
-        android:textSize="20sp" />
+        android:textColor="#ffffff"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/solution"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="130dp"
-        android:layout_below="@+id/question"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/buttonSolution"
+        android:layout_above="@+id/btnBack"
         android:fontFamily="sans-serif-light"
         android:padding="10dp"
         android:text="This is Solution!!"
-        android:textColor="#ffffff"
+        android:textColor="#1abc9c"
         android:textSize="24sp" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="fill_parent"
-        android:layout_height="42dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_corner_lighter"
+        android:background="#ff6b6b"
         android:fontFamily="sans-serif-light"
         android:text="Back"
-        android:textColor="#166f5e"
-        android:textSize="17sp" />
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
 </RelativeLayout>
-
-<ListView android:id="@+id/drawerList"
-    android:background="#ffecf0f1"
-    android:textColor="#ffffff"
-    android:divider="@null"
-    android:layout_width="240dp"
-    android:layout_height="match_parent"
-    android:layout_gravity="left"
-    ></ListView>
-</android.support.v4.widget.DrawerLayout>

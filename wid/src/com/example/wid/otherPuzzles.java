@@ -2,10 +2,12 @@ package com.example.wid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class otherPuzzles extends Activity implements OnClickListener{
 
@@ -27,7 +29,16 @@ public class otherPuzzles extends Activity implements OnClickListener{
 		btnMath.setOnClickListener(this);
 		btnJumble.setOnClickListener(this);
 		btnBack.setOnClickListener(this);
+
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+		        "font/indiepimptbs.ttf");
+		TextView name = (TextView)findViewById(R.id.tvName);
 		
+		btnRiddle.setTypeface(tf);
+		btnMath.setTypeface(tf);
+		btnJumble.setTypeface(tf);
+		btnBack.setTypeface(tf);
+		name.setTypeface(tf);
 
 		
 	}
@@ -38,18 +49,26 @@ public class otherPuzzles extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.back:
 			finish();
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 		case R.id.maths:
 			Intent i = new Intent(this, mathQues.class);
 			startActivity(i);
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 		case R.id.riddle:
 			Intent i2 = new Intent(this, riddleQues.class);
 			startActivity(i2);
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 		case R.id.jumledWord:
 			Intent i3 = new Intent(this, jumbleQues.class);
 			startActivity(i3);
+			overridePendingTransition(R.animator.pull_in_left, R.animator.push_out_right);
+			
 			break;
 		//case R.id.logic:
 		//	Intent i4 = new Intent(this, logicQues.class);
